@@ -1,0 +1,107 @@
+{
+    "root": true,
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+        "no-case-declarations": 0,
+        "lines-around-comment": [
+            2,
+            {
+                "allowArrayStart": true,
+                "allowBlockStart": true,
+                "allowObjectStart": true,
+                "beforeBlockComment": true,
+                "beforeLineComment": true
+            }
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false
+            }
+        ],
+        "space-before-function-paren": [
+            2,
+            "never"
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "warn",
+                    "error",
+                    "debug",
+                    "info"
+                ]
+            }
+        ],
+        "indent": [
+            2,
+            "tab",
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "quotes": [
+            2,
+            "single"
+        ],
+        "linebreak-style": [
+            1,
+            "unix"
+        ],
+        "no-mixed-spaces-and-tabs": [
+            "error",
+            "smart-tabs"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "jsx-quotes": [
+            2,
+            "prefer-double"
+        ],
+        "react/jsx-key": 2,
+        "react/prop-types": 0
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": false
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 8,
+        "ecmaFeatures": {
+            "jsx": true,
+            "destructuring": true,
+            "spread": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "globals": {
+        "window": true,
+        "document": true,
+        "require": true,
+        "module": true,
+        "exports": true,
+        "_": true,
+        "moment": true,
+        "numeral": true,
+        "localforage": true,
+        "fastClick": true,
+        "global": true,
+        "angular": true,
+        "React": true,
+        "Raven": true,
+        "ReactDOM": true,
+        "fetch": true
+    }
+}

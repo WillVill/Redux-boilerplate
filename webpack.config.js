@@ -1,32 +1,38 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: './src/index.html',
+  filename: 'index.html',
+  inject: 'body',
+})
 
 module.exports = {
-    devServer: {
-        inline: true,
-        contentBase: './src',
-        port: 3000
+    entry: './src/index.js',
+    mode: 'production',
+    output: {
+        path: path.resolve('dist'),
+        filename: 'index.bundle.js'
     },
-    devtool: 'cheap-module-eval-source-map',
-    entry: './dev/js/index.js',
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['babel'],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss/,
-                loader: 'style-loader!css-loader!sass-loader'
-            }
+        rules: [
+          { test: /\.css$/,
+            use: [
+              { loader: "style-loader" },
+              { loader: "css-loader" }
+            ]
+          },
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: "babel-loader"
+          }, {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: "babel-loader"
+          }
         ]
     },
-    output: {
-        path: 'src',
-        filename: 'js/bundle.min.js'
-    },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin()
-    ]
-};
+    plugins: [ HtmlWebpackPluginConfig ],
+    devtool: 'cheap-module-source-map'
+}
